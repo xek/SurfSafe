@@ -1,7 +1,6 @@
 <resources>
 
-    <string name="app_name">org.twinone.androidlib</string>
-    <string name="share_dlg_tit">Share this app</string>
-    <string name="share_dlg_msg">If you like this app, consider helping improve it by sharing it with your friends.</string>
+    <string name="lib_share_dlg_tit">Share this app</string>
+    <string name="lib_share_dlg_msg">If you like this app, consider helping improve it by sharing it with your friends.</string>
 
 </resources>

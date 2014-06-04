@@ -12,7 +12,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
-        android:hint="@string/share_dlg_tit" >
+        android:hint="@string/lib_share_dlg_tit" >
     </EditText>
 
 </LinearLayout>

@@ -41,8 +41,8 @@ public abstract class Dialogs {
 				.findViewById(R.id.share_dialog_et_content);
 		et.setText(promoText);
 		ab.setCancelable(false);
-		ab.setTitle(R.string.share_dlg_tit);
-		ab.setMessage(R.string.share_dlg_msg);
+		ab.setTitle(R.string.lib_share_dlg_tit);
+		ab.setMessage(R.string.lib_share_dlg_msg);
 		ab.setNegativeButton(android.R.string.cancel, null);
 		ab.setPositiveButton(android.R.string.ok, new OnClickListener() {
 
@@ -55,7 +55,7 @@ public abstract class Dialogs {
 				intent.setType("text/plain");
 				intent.putExtra(Intent.EXTRA_TEXT, text);
 				Intent sender = Intent.createChooser(intent,
-						c.getString(R.string.share_dlg_tit));
+						c.getString(R.string.lib_share_dlg_tit));
 				c.startActivity(sender);
 				// At this point, we can assume the user will share the app.
 				// So never show the dialog again, he can manually open it from
