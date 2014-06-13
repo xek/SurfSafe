@@ -40,6 +40,11 @@ public abstract class NavigationFragment extends Fragment {
 	public NavigationFragment() {
 	}
 
+	protected SharedPreferences getPreferences() {
+		return getActivity().getSharedPreferences(PREF_FILENAME,
+				Context.MODE_PRIVATE);
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,11 +56,6 @@ public abstract class NavigationFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		return new LinearLayout(getActivity());
-	}
-
-	private SharedPreferences getPreferences() {
-		return getActivity().getSharedPreferences(PREF_FILENAME,
-				Context.MODE_PRIVATE);
 	}
 
 	@Override
@@ -178,7 +178,11 @@ public abstract class NavigationFragment extends Fragment {
 
 	private void setSlidingLockMode(int mode) {
 		mDrawerLayout.setDrawerLockMode(mode, mFragmentContainerView);
-		getActionBar().setHomeButtonEnabled(false);
+		if (mode == DrawerLayout.LOCK_MODE_UNLOCKED) {
+			mDrawerLayout.setFocusableInTouchMode(true);
+		} else {
+			mDrawerLayout.setFocusableInTouchMode(false);
+		}
 	}
 
 	/**
@@ -281,7 +285,20 @@ public abstract class NavigationFragment extends Fragment {
 	 * the drawer<br>
 	 * Android developers have super small fingers, so they recommend 20dp.<br>
 	 * Call me gorilla, but I fail to open in the first try with 20dp<br>
-	 * I suggest you use at least 100dp.
+	 * I suggest you use at least 100dp.<br>
+	 * 
+	 * Note: This uses reflection, if you don't want the app to crash, add this
+	 * to your proguard-project.txt:<br>
+	 * 
+	 * <pre>
+	 * -keepclassmembers class android.support.v4.widget.DrawerLayout { 
+	 * 	private android.support.v4.widget.ViewDragHelper *;
+	 *  }
+	 * 
+	 * -keepclassmembers class android.support.v4.widget.ViewDragHelper { 
+	 * 	private int mEdgeSize;
+	 *  }
+	 * </pre>
 	 * 
 	 * 
 	 * @param dp
