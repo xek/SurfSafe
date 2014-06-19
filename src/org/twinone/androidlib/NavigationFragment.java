@@ -237,7 +237,7 @@ public abstract class NavigationFragment extends Fragment {
 	/**
 	 * Get the current edge size in dp
 	 * 
-	 * @see #setEdgeSizeDp(int)
+	 * @see #setLeftEdgeSizeDp(int)
 	 */
 	public int getEdgeSizeDp() {
 		try {
@@ -261,7 +261,7 @@ public abstract class NavigationFragment extends Fragment {
 	 * Recommended edge size in dp so that any user will be easily able to open
 	 * the drawer
 	 */
-	public static final int EDGE_SIZE_RECOMMENDED = 100;
+	public static final int EDGE_SIZE_RECOMMENDED = 40;
 
 	/**
 	 * Set the size of the region in which the user can slide his finger to open
@@ -274,10 +274,18 @@ public abstract class NavigationFragment extends Fragment {
 	 * @param dp
 	 * @see #EDGE_SIZE_RECOMMENDED
 	 */
+	public void setLeftEdgeSizeDp(int dp) {
+		float density = getResources().getDisplayMetrics().density;
+		int px = (int) (dp * density + 0.5f);
+		setEdgeSizePx(px, true);
+	}
+
 	public void setEdgeSizeDp(int dp) {
 		float density = getResources().getDisplayMetrics().density;
 		int px = (int) (dp * density + 0.5f);
-		setEdgeSizePx(px);
+		setEdgeSizePx(px, true);
+		setEdgeSizePx(px, false);
+
 	}
 
 	/**
@@ -304,14 +312,14 @@ public abstract class NavigationFragment extends Fragment {
 	 * @param dp
 	 * @see #EDGE_SIZE_RECOMMENDED
 	 */
-	private void setEdgeSizePx(int px) {
+	private void setEdgeSizePx(int px, boolean left) {
 		if (!mIsSetUp) {
 			throw new IllegalStateException(
 					"You should call setUp() before setEdgeSizeDp()");
 		}
 		try {
-			Field dragger = mDrawerLayout.getClass().getDeclaredField(
-					"mLeftDragger");
+			String field = left ? "mLeftDragger" : "mRightDragger";
+			Field dragger = mDrawerLayout.getClass().getDeclaredField(field);
 			dragger.setAccessible(true);
 			ViewDragHelper helper = (ViewDragHelper) dragger.get(mDrawerLayout);
 			Field mEdgeSize = helper.getClass().getDeclaredField("mEdgeSize");
@@ -321,4 +329,11 @@ public abstract class NavigationFragment extends Fragment {
 			throw new RuntimeException("Error setting edge size");
 		}
 	}
+
+	public void setRightEdgeSizeDp(int dp) {
+		float density = getResources().getDisplayMetrics().density;
+		int px = (int) (dp * density + 0.5f);
+		setEdgeSizePx(px, false);
+	}
+
 }
