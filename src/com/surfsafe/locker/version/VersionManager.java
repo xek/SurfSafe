@@ -34,28 +34,28 @@ import com.google.gson.Gson;
 public class VersionManager {
 
 	public static final String TAG = "VersionManager";
-	private static final String PREFS_FILENAME = "com.twinone.update";
+	private static final String PREFS_FILENAME = "com.surfsafe.update";
 
-	private static final String PREFS_VERSION_MATCHED = "com.twinone.update.version";
+	private static final String PREFS_VERSION_MATCHED = "com.surfsafe.update.version";
 	/** This version is OR WILL BE deprecated */
-	private static final String PREFS_DEPRECATED = "com.twinone.update.deprecated";
+	private static final String PREFS_DEPRECATED = "com.surfsafe.update.deprecated";
 	/** This version's deprecation time */
-	private static final String PREFS_DEPRECATION_TIME = "com.twinone.update.deprecation_time";
+	private static final String PREFS_DEPRECATION_TIME = "com.surfsafe.update.deprecation_time";
 	/** If server time >= warning time, the user should get warned */
-	private static final String PREFS_WARN_TIME = "com.twinone.update.warn_before_time";
+	private static final String PREFS_WARN_TIME = "com.surfsafe.update.warn_before_time";
 	/** Current server time */
-	private static final String PREFS_SERVER_TIME = "com.twinone.update.server_time";
+	private static final String PREFS_SERVER_TIME = "com.surfsafe.update.server_time";
 	/** Custom prefix to be added to user-defined objects */
-	private static final String PREFS_VALUES_PREFIX = "com.twinone.update.values.custom.";
+	private static final String PREFS_VALUES_PREFIX = "com.surfsafe.update.values.custom.";
 
 	// Prefs in persistent file will not be wiped when a new version is applied
 	// from server
-	private static final String PERSISTENT_FILENAME = "com.twinone.update.pers";
+	private static final String PERSISTENT_FILENAME = "com.surfsafe.update.pers";
 	/** The url to query for version info */
-	private static final String PREFS_URL = "com.twinone.update.url";
+	private static final String PREFS_URL = "com.surfsafe.update.url";
 
 	/** This indicates the old version for #isJustUpdated() */
-	private static final String PREFS_OLD_VERSION = "com.twinone.update.values.old_version";
+	private static final String PREFS_OLD_VERSION = "com.surfsafe.update.values.old_version";
 
 	private final Context mContext;
 

@@ -34,7 +34,7 @@ import com.surfsafe.locker.R;
  */
 public class VersionChecker extends AsyncTask<String, Void, VersionInfo> {
 
-	private static final String PREF_FILE_NAME = "com.twinone.version";
+	private static final String PREF_FILE_NAME = "com.surfsafe.version";
 	private static final String PREF_KEY_DEPRECATED_VERSION = "com.surfsafe.util.version.deprecated_version";
 	private static final String PREF_KEY_AVAILABLE_VERSION = "com.surfsafe.util.version.current_version";
 	private static final String PREF_KEY_LAST_CHECK = "com.surfsafe.util.version.last_check";

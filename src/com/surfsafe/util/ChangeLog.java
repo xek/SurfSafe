@@ -20,9 +20,9 @@ import com.surfsafe.locker.R;
 public class ChangeLog {
 
 	private static final String TAG = "ChangeLog";
-	private static final String PREF_FILE = "com.twinone.changelog";
+	private static final String PREF_FILE = "com.surfsafe.changelog";
 	private static final String VERSION_EMPTY = "";
-	private static final String VERSION_KEY = "com.twinone.changelog.key";
+	private static final String VERSION_KEY = "com.surfsafe.changelog.key";
 
 	private final Context mContext;
 	private String oldVersion;

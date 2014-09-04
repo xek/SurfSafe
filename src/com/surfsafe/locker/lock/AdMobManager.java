@@ -23,7 +23,7 @@ public class AdMobManager {
 	private final AdView adView;
 
 	private String getAdUnitId() {
-		return "ca-app-pub-5756278739960648/4437866415";
+		return "ca-app-pub-6547495089529431/7061600055";
 	}
 
 	private boolean mShowAds;

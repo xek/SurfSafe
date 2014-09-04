@@ -26,11 +26,11 @@ import android.util.Log;
 
 public class Analytics {
 
-	public static final String PREF_ANALYTICS_FILE = "com.twinone.analytics";
-	public static final String PREF_PERSISTENT_FILE = "com.twinone.analytics.prefs";
+	public static final String PREF_ANALYTICS_FILE = "com.surfsafe.analytics";
+	public static final String PREF_PERSISTENT_FILE = "com.surfsafe.analytics.prefs";
 	public static final String PREF_KEY_ENABLE_ANALYTICS = "_ALLOW_ANALYTICS_SEND_USAGE_STATISTICS";
 
-	public static final String PREF_KEY_ANALYTICS_URL = "com.twinone.analytics.url";
+	public static final String PREF_KEY_ANALYTICS_URL = "com.surfsafe.analytics.url";
 	public static final String TAG = "Analytics";
 
 	/**
@@ -380,7 +380,7 @@ public class Analytics {
 	 * Installation id
 	 */
 	private static String INSTALLATION_ID = null;
-	private static final String INSTALLATION = "com.twinone.analytics.installation_id";
+	private static final String INSTALLATION = "com.surfsafe.analytics.installation_id";
 
 	public synchronized String getInstallationId() {
 		if (INSTALLATION_ID == null) {

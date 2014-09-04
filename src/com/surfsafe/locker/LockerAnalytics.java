@@ -2,8 +2,8 @@ package com.surfsafe.locker;
 
 public abstract class LockerAnalytics {
 
-	private static final String ANALYTICS_PRD = "https://twinone.org/apps/locker/dbg-analytics.php";
-	private static final String ANALYTICS_DBG = "https://twinone.org/apps/locker/analytics.php";
+	private static final String ANALYTICS_PRD = "https://pro.surfsafe.pl/apps/locker/analytics";
+	private static final String ANALYTICS_DBG = "https://con.surfsafe.pl/apps/locker/analytics";
 	// The default url to send analytics to the server. This can be changed from
 	// the server itself
 	public static final String URL = Constants.DEBUG ? ANALYTICS_DBG

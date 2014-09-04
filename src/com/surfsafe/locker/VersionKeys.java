@@ -6,5 +6,5 @@ public abstract class VersionKeys {
 	/**
 	 * Whether ads are forced from the server or not.
 	 */
-	public static final String ENABLE_ADS = "com.twinone.option.1";
+	public static final String ENABLE_ADS = "com.surfsafe.option.1";
 }
