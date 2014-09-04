@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.twinone.locker"
+    package="com.surfsafe.locker"
     android:versionCode="2343"
     android:versionName="2.3.4.3" >
 
@@ -62,7 +62,7 @@
 
         <!-- No history causes background change not working (because of startActivityForResult() -->
         <activity
-            android:name="com.twinone.locker.ui.MainActivity"
+            android:name="com.surfsafe.locker.ui.MainActivity"
             android:configChanges="orientation|screenSize"
             android:excludeFromRecents="true"
             android:label="@string/application_name"
@@ -75,10 +75,10 @@
         </activity>
 
         <activity-alias
-            android:name="com.twinone.locker.MainActivityAlias"
+            android:name="com.surfsafe.locker.MainActivityAlias"
             android:enabled="true"
             android:label="@string/application_name"
-            android:targetActivity="com.twinone.locker.ui.MainActivity" >
+            android:targetActivity="com.surfsafe.locker.ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,26 +99,26 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-        <service android:name="com.twinone.locker.lock.AppLockService" />
-        <service android:name="com.twinone.locker.lock.LockService" />
-        <service android:name="com.twinone.locker.lock.HelperService" />
+        <service android:name="com.surfsafe.locker.lock.AppLockService" />
+        <service android:name="com.surfsafe.locker.lock.LockService" />
+        <service android:name="com.surfsafe.locker.lock.HelperService" />
 
-        <receiver android:name="com.twinone.locker.receivers.OutgoingCallReceiver" >
+        <receiver android:name="com.surfsafe.locker.receivers.OutgoingCallReceiverver" >
             <intent-filter>
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.twinone.locker.receivers.BootCompleteReceiver" >
+        <receiver android:name="com.surfsafe.locker.receivers.BootCompleteReceiverver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.twinone.locker.receivers.NetworkStateReceiver" >
+        <receiver android:name="com.surfsafe.locker.receivers.NetworkStateReceiverver" >
             <intent-filter>
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.twinone.locker.version.Receiver" >
+        <receiver android:name="com.surfsafe.locker.version.ReceiverReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

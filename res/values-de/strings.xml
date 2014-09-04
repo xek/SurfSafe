@@ -5,7 +5,7 @@
 -->
 <resources>
 
-    <string name="application_name">App Locker</string>
+    <string name="application_name">SurfSafe</string>
     <string name="action_settings">Einstellungen</string>
 
     <!-- All strings for MainActivity -->
@@ -17,7 +17,7 @@
     <string name="main_change_message_saved">Nachricht gespeichert</string>
     <string name="main_share">Teilen</string>
     <string name="main_share_tit">Teile Locker</string>
-    <string name="main_share_text">Probiere Locker, die kostenlose App um deine wichtigen Apps privat zu halten. https://play.google.com/store/apps/details?id=com.twinone.locker</string>
+    <string name="main_share_text">Probiere Locker, die kostenlose App um deine wichtigen Apps privat zu halten. https://play.google.com/store/apps/details?id=com.surfsafe.locker</string>
 
     <!-- All Strings for applist -->
     <string name="applist_on">EIN</string>
@@ -333,7 +333,7 @@
     <string name="pref_dlgmsg_recovery_code">Dein aktueller Code ist: %s</string>
     <!-- Recovery intent chooser -->
     <string name="recovery_intent_tit">Wiederherstellungscode senden</string>
-    <string name="recovery_intent_message">Dein Twinone App Locker Wiederherstellungscode.\nUm auf dein Gerät wieder zugreifen und um das Passwort wieder ändern zu können, öffne bitte das Wahlfeld und rufe folgende Nummer an: %s</string>
+    <string name="recovery_intent_message">Dein SurfSafe Wiederherstellungscode.\nUm auf dein Gerät wieder zugreifen und um das Passwort wieder ändern zu können, öffne bitte das Wahlfeld und rufe folgende Nummer an: %s</string>
     <!-- Da menu -->
     <string name="apps_menu_sort">Sortieren</string>
     <string name="apps_menu_lock_all">Alle sperren</string>

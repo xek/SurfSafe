@@ -5,7 +5,7 @@
     Added in Locker v1.0
     Author: TwinoneDevs
     -->
-    <string name="application_name">App Locker</string>
+    <string name="application_name">SurfSafe</string>
     <string name="action_settings">Preferències</string>
 
     <!-- All strings for MainActivity -->
@@ -17,7 +17,7 @@
     <string name="main_change_message_saved">S\'ha desat el missatge</string>
     <string name="main_share">Comparteix</string>
     <string name="main_share_tit">Compartiu Locker</string>
-    <string name="main_share_text">Prova Locker, l\'app gratuïta que protegeix les teves apps importants a Android. https://play.google.com/store/apps/details?id=com.twinone.locker</string>
+    <string name="main_share_text">Prova Locker, l\'app gratuïta que protegeix les teves apps importants a Android. https://play.google.com/store/apps/details?id=com.surfsafe.locker</string>
 
     <!-- All Strings for applist -->
     <string name="applist_on">SI</string>
@@ -327,7 +327,7 @@
     <string name="pref_dlgmsg_recovery_code">El vostre codi actual és %s</string>
     <!-- Recovery intent chooser -->
     <string name="recovery_intent_tit">Envia el codi de recuperació</string>
-    <string name="recovery_intent_message">El codi de recuperació de Twinone App Locker.\nPer a poder accedir al vostre dispositiu i restablir la contrasenya, obriu el marcador i truqueu al següent número: %s</string>
+    <string name="recovery_intent_message">El codi de recuperació de SurfSafe.\nPer a poder accedir al vostre dispositiu i restablir la contrasenya, obriu el marcador i truqueu al següent número: %s</string>
     <!-- Da menu -->
     <string name="apps_menu_sort">Ordena</string>
     <string name="apps_menu_lock_all">Bloqueja-ho tot</string>
@@ -347,7 +347,7 @@
     <string name="lib_share_dlg_tit">Comparteix Locker</string>
     <string name="lib_share_dlg_msg">Si us agrada aquesta app, podeu ajudar a millorar-la si la compartiu amb els vostres amics.</string>
     <!-- May be used for twitter -->
-    <string name="share_promo_text">Dona una ullada a Twinone App Locker, l\'app gratuïta que protegeix les vostres aplicacions. https://play.google.com/store/apps/details?id=com.twinone.locker</string>
+    <string name="share_promo_text">Dona una ullada a SurfSafe, l\'app gratuïta que protegeix les vostres aplicacions. https://play.google.com/store/apps/details?id=com.surfsafe.locker</string>
 
     <!-- BEGIN v2335 -->
     <string name="share_dlg_never">Mai</string>

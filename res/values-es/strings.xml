@@ -5,7 +5,7 @@
     Added in Locker v1.0
     Author: TwinoneDevs
     -->
-    <string name="application_name">App Locker</string>
+    <string name="application_name">SurfSafe</string>
     <string name="action_settings">Ajustes</string>
 
     <!-- All strings for MainActivity -->
@@ -17,7 +17,7 @@
     <string name="main_change_message_saved">Mensaje guardado</string>
     <string name="main_share">Compartir</string>
     <string name="main_share_tit">Compartir Locker</string>
-    <string name="main_share_text">Prueba Locker, la app gratis que protege tus apps importantes en android. https://play.google.com/store/apps/details?id=com.twinone.locker</string>
+    <string name="main_share_text">Prueba Locker, la app gratis que protege tus apps importantes en android. https://play.google.com/store/apps/details?id=com.surfsafe.locker</string>
 
     <!-- All Strings for applist -->
     <string name="applist_on">SI</string>
@@ -327,7 +327,7 @@
     <string name="pref_dlgmsg_recovery_code">Tu código actual es %s</string>
     <!-- Recovery intent chooser -->
     <string name="recovery_intent_tit">Enviar código de recuperación</string>
-    <string name="recovery_intent_message">Tu código de recuperación de Twinone App Locker.\nPara poder acceder a tu dispositivo de nuevo y restablecer tu contraseña, abre marcador y llama al siguiente número: %s</string>
+    <string name="recovery_intent_message">Tu código de recuperación de SurfSafe.\nPara poder acceder a tu dispositivo de nuevo y restablecer tu contraseña, abre marcador y llama al siguiente número: %s</string>
     <!-- Da menu -->
     <string name="apps_menu_sort">Ordenar</string>
     <string name="apps_menu_lock_all">Bloquear todo</string>
@@ -347,7 +347,7 @@
     <string name="lib_share_dlg_tit">Compartir Locker</string>
     <string name="lib_share_dlg_msg">Si te gusta esta app, considera ayudar a mejorarla compartiéndola con tus amigos.</string>
     <!-- May be used for twitter -->
-    <string name="share_promo_text">Echa un vistazo a Twinone App Locker, la app gratuita que protege tu privacidad y aplicaciones. https://play.google.com/store/apps/details?id=com.twinone.locker</string>
+    <string name="share_promo_text">Echa un vistazo a SurfSafe, la app gratuita que protege tu privacidad y aplicaciones. https://play.google.com/store/apps/details?id=com.surfsafe.locker</string>
 
         <!-- BEGIN v2335 -->
     <string name="share_dlg_never">Nunca</string>

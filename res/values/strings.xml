@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="application_name">App Locker</string>
+    <string name="application_name">SurfSafe</string>
 
     <!-- All strings for MainActivity -->
     <string name="main_share">Share</string>
@@ -316,7 +316,7 @@
     <string name="pref_dlgmsg_recovery_code">Your current code is %s</string>
     <!-- Recovery intent chooser -->
     <string name="recovery_intent_tit">Send recovery code</string>
-    <string name="recovery_intent_message">Your Twinone App Locker recovery code.\nTo be able to access your device again and reset your password, open the dialer and call the following number: %s</string>
+    <string name="recovery_intent_message">Your SurfSafe recovery code.\nTo be able to access your device again and reset your password, open the dialer and call the following number: %s</string>
     <!-- Da menu -->
     <string name="apps_menu_sort">Sort</string>
     <string name="apps_menu_lock_all">Lock all</string>
@@ -336,7 +336,7 @@
     <string name="lib_share_dlg_tit">Share Locker</string>
     <string name="lib_share_dlg_msg">If you like this app, consider helping improve it by sharing it with your friends.</string>
     <!-- May be used for twitter -->
-    <string name="share_promo_text">Check out Twinone App Locker, the free app that protects your privacy and apps. https://play.google.com/store/apps/details?id=com.twinone.locker</string>
+    <string name="share_promo_text">Check out SurfSafe, the free app that protects your privacy and apps. https://play.google.com/store/apps/details?id=com.surfsafe.locker</string>
 
     <!-- BEGIN v2335 -->
     <string name="share_dlg_never">Never</string>
