@@ -1,4 +1,4 @@
-package org.twinone.androidlib;
+package com.surfsafe.androidlib;
 
 import java.util.List;
 

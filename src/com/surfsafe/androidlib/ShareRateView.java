@@ -13,7 +13,9 @@
  * limitations under the License.
  * 
  */
-package org.twinone.androidlib;
+package com.surfsafe.androidlib;
+
+import com.surfsafe.androidlib.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

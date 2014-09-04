@@ -13,7 +13,7 @@
  * limitations under the License.
  * 
  */
-package org.twinone.androidlib;
+package com.surfsafe.androidlib;
 
 
 public abstract class Dialogs {

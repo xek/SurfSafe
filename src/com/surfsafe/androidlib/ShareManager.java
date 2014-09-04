@@ -1,4 +1,6 @@
-package org.twinone.androidlib;
+package com.surfsafe.androidlib;
+
+import com.surfsafe.androidlib.R;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,18 +14,18 @@ import android.widget.EditText;
 
 public class ShareManager {
 
-	private static final String PREF_FILE = "org.twinone.androidlib.share";
-	private static final String PREF_KEY_COUNT = "org.twinone.androidlib.share.count";
+	private static final String PREF_FILE = "com.surfsafe.androidlib.share";
+	private static final String PREF_KEY_COUNT = "com.surfsafe.androidlib.share.count";
 	/**
 	 * After how many times should the share dialog be shown for the first time?
 	 */
-	private static final String PREF_KEY_OFFSET = "org.twinone.androidlib.share.offset";
+	private static final String PREF_KEY_OFFSET = "com.surfsafe.androidlib.share.offset";
 	/** After the first time, each how many times should the dialog show? */
-	private static final String PREF_KEY_REPEAT = "org.twinone.androidlib.share.repeat";
+	private static final String PREF_KEY_REPEAT = "com.surfsafe.androidlib.share.repeat";
 	private static final int OFFSET_DEFAULT = 7;
 	private static final int REPEAT_DEFAULT = 5;
 
-	private static final String PREF_KEY_NEVER = "org.twinone.androidlib.share.never";
+	private static final String PREF_KEY_NEVER = "com.surfsafe.androidlib.share.never";
 
 	private static SharedPreferences getPrefs(Context c) {
 		return c.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);

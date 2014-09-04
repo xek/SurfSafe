@@ -1,6 +1,8 @@
-package org.twinone.androidlib;
+package com.surfsafe.androidlib;
 
 import java.lang.reflect.Field;
+
+import com.surfsafe.androidlib.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;

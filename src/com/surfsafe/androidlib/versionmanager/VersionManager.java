@@ -1,4 +1,4 @@
-package org.twinone.androidlib.versionmanager;
+package com.surfsafe.androidlib.versionmanager;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,8 +19,8 @@ import android.util.Log;
  * 
  */
 public class VersionManager {
-	private static final String PREFS_NAME = "org.twinone.androidlib.versionmanager.prefs";
-	private static final String KEY_LAST_VERSION = "org.twinone.androidlib.versionmanager.last_version";
+	private static final String PREFS_NAME = "com.surfsafe.androidlib.versionmanager.prefs";
+	private static final String KEY_LAST_VERSION = "com.surfsafe.androidlib.versionmanager.last_version";
 
 	private Context mContext;
 	private OnUpdateListener mListener;
