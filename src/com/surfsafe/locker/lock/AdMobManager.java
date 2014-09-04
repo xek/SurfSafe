@@ -61,7 +61,7 @@ public class AdMobManager {
 		// get test ads on a physical device.
 
 		AdRequest adRequest = new AdRequest.Builder()
-				.addTestDevice("896CB3D3288417013D38303D179FD45B")
+				.addTestDevice("273DA7E40F99D5371EC021F4C43816BC")
 				.addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
 
 		// Start loading the ad in the background.
