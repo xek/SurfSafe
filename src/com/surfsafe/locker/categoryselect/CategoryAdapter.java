@@ -1,4 +1,4 @@
-package com.surfsafe.locker.appselect;
+package com.surfsafe.locker.categoryselect;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +11,7 @@ import java.util.Set;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -26,28 +27,31 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.surfsafe.locker.lock.AppLockService;
 import com.surfsafe.locker.util.PrefUtils;
 import com.surfsafe.locker.R;
 
-public class AppAdapter extends BaseAdapter {
+public class CategoryAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
 	private PackageManager mPm;
 	private Context mContext;
-	private Set<AppListElement> mInitialItems;
-	private List<AppListElement> mItems;
+	private Set<CategoryListElement> mInitialItems;
+	private List<CategoryListElement> mItems;
 	private Editor mEditor;
+	private SharedPreferences mPreferences;
 
-	public AppAdapter(Context context) {
+	public CategoryAdapter(Context context) {
 		mContext = context;
 		mInflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mPm = context.getPackageManager();
 		// Empty
-		mInitialItems = new HashSet<AppListElement>();
-		mItems = new ArrayList<AppListElement>();
-		mEditor = PrefUtils.appsPrefs(context).edit();
+		mInitialItems = new HashSet<CategoryListElement>();
+		mItems = new ArrayList<CategoryListElement>();
+		mPreferences = PrefUtils.appsPrefs(context);
+		mEditor = mPreferences.edit();
 
 		new LoaderClass().execute((Void[]) null);
 		// Collections.sort(mItems);
@@ -91,7 +95,7 @@ public class AppAdapter extends BaseAdapter {
 	}
 
 	public boolean areAllAppsLocked() {
-		for (AppListElement app : mItems)
+		for (CategoryListElement app : mItems)
 			if (app.isApp() && !app.locked)
 				return false;
 		return true;
@@ -105,81 +109,24 @@ public class AppAdapter extends BaseAdapter {
 	 */
 	public void loadAppsIntoList() {
 
-		// Get all tracked apps from preferences
-		addImportantAndSystemApps(mInitialItems);
-
 		// other apps
 		final Intent i = new Intent(Intent.ACTION_MAIN);
 		i.addCategory(Intent.CATEGORY_LAUNCHER);
 		final List<ResolveInfo> ris = mPm.queryIntentActivities(i, 0);
-
+/*
 		for (ResolveInfo ri : ris) {
-			if (!mContext.getPackageName().equals(ri.activityInfo.packageName)) {
-				final AppListElement ah = new AppListElement(ri.loadLabel(mPm)
+				final CategoryListElement ah = new CategoryListElement(ri.loadLabel(mPm)
 						.toString(), ri.activityInfo,
-						AppListElement.PRIORITY_NORMAL_APPS);
+						CategoryListElement.PRIORITY_CHILD_CATS);
 				mInitialItems.add(ah);
-			}
-		}
+		} */
 		final Set<String> lockedApps = PrefUtils.getLockedApps(mContext);
-		for (AppListElement ah : mInitialItems) {
+		for (CategoryListElement ah : mInitialItems) {
 			ah.locked = lockedApps.contains(ah.packageName);
 		}
-		mItems = new ArrayList<AppListElement>(mInitialItems);
+		mItems = new ArrayList<CategoryListElement>(mInitialItems);
 	}
 
-	private void addImportantAndSystemApps(Collection<AppListElement> apps) {
-		final String installer = "com.android.packageinstaller";
-		final String sysui = "com.android.systemui";
-
-		final List<String> important = Arrays.asList(new String[] {
-				"com.android.vending", "com.android.settings" });
-
-		final List<String> system = Arrays
-				.asList(new String[] { "com.android.dialer", "com.android.phone" });
-
-		final PackageManager pm = mContext.getPackageManager();
-		List<ApplicationInfo> list = pm.getInstalledApplications(0);
-		boolean haveSystem = false;
-		boolean haveImportant = false;
-		for (ApplicationInfo pi : list) {
-			if (sysui.equals(pi.packageName)) {
-				apps.add(new AppListElement(mContext
-						.getString(R.string.applist_app_sysui), pi,
-						AppListElement.PRIORITY_SYSTEM_APPS));
-				haveSystem = true;
-			} else if (installer.equals(pi.packageName)) {
-				apps.add(new AppListElement(mContext
-						.getString(R.string.applist_app_pkginstaller), pi,
-						AppListElement.PRIORITY_IMPORTANT_APPS));
-				haveImportant = true;
-			}
-			if (important.contains(pi.packageName)) {
-				apps.add(new AppListElement(pi.loadLabel(pm).toString(), pi,
-						AppListElement.PRIORITY_IMPORTANT_APPS));
-				haveImportant = true;
-			}
-			if (system.contains(pi.packageName)) {
-				apps.add(new AppListElement(pi.loadLabel(pm).toString(), pi,
-						AppListElement.PRIORITY_SYSTEM_APPS));
-				haveSystem = true;
-			}
-
-			apps.add(new AppListElement(mContext
-					.getString(R.string.applist_tit_apps),
-					AppListElement.PRIORITY_NORMAL_CATEGORY));
-			if (haveImportant) {
-				apps.add(new AppListElement(mContext
-						.getString(R.string.applist_tit_important),
-						AppListElement.PRIORITY_IMPORTANT_CATEGORY));
-			}
-			if (haveSystem) {
-				apps.add(new AppListElement(mContext
-						.getString(R.string.applist_tit_system),
-						AppListElement.PRIORITY_SYSTEM_CATEGORY));
-			}
-		}
-	}
 
 	/**
 	 * Sort the apps and notify the ListView that the items have changed. Should
@@ -201,7 +148,7 @@ public class AppAdapter extends BaseAdapter {
 		return mItems.get(position);
 	}
 
-	public List<AppListElement> getAllItems() {
+	public List<CategoryListElement> getAllItems() {
 		return mItems;
 	}
 
@@ -233,7 +180,7 @@ public class AppAdapter extends BaseAdapter {
 
 	private View createSeparatorViewFromResource(int position,
 			View convertView, ViewGroup parent) {
-		AppListElement ah = mItems.get(position);
+		CategoryListElement ah = mItems.get(position);
 
 		View view = convertView;
 		if (view == null)
@@ -248,7 +195,7 @@ public class AppAdapter extends BaseAdapter {
 	private View createAppViewFromResource(int position, View convertView,
 			ViewGroup parent) {
 
-		AppListElement ah = mItems.get(position);
+		CategoryListElement ah = mItems.get(position);
 		View view = convertView;
 		if (view == null)
 			view = mInflater.inflate(R.layout.applist_item_app, parent, false);
@@ -276,20 +223,20 @@ public class AppAdapter extends BaseAdapter {
 	// TODO
 	// TODO
 	// TODO Important: Undo action.
-	private ArrayList<AppListElement> mUndoItems;
+	private ArrayList<CategoryListElement> mUndoItems;
 
 	public void prepareUndo() {
-		mUndoItems = new ArrayList<AppListElement>(mItems);
+		mUndoItems = new ArrayList<CategoryListElement>(mItems);
 	}
 
 	public void undo() {
-		mItems = new ArrayList<AppListElement>(mUndoItems);
+		mItems = new ArrayList<CategoryListElement>(mUndoItems);
 		notifyDataSetChanged();
 	}
 
 	public void setAllLocked(boolean lock) {
 		ArrayList<String> apps = new ArrayList<String>();
-		for (AppListElement app : mItems) {
+		for (CategoryListElement app : mItems) {
 			if (app.isApp()) {
 				app.locked = lock;
 				apps.add(app.packageName);
@@ -311,13 +258,13 @@ public class AppAdapter extends BaseAdapter {
 		}
 	}
 
-	public void toggle(AppListElement item) {
+	public void toggle(CategoryListElement item) {
 		if (item.isApp()) {
 			item.locked = !item.locked;
 			setLocked(item.locked, item.packageName);
 			save();
 		}
-		List<AppListElement> list = new ArrayList<AppListElement>(mItems);
+		List<CategoryListElement> list = new ArrayList<CategoryListElement>(mItems);
 		Collections.sort(list);
 		boolean dirty = !list.equals(mItems);
 		Log.d("", "dirty=" + dirty + ", mDirtyState = " + mDirtyState);
@@ -326,8 +273,12 @@ public class AppAdapter extends BaseAdapter {
 	}
 
 	public void save() {
+		//TODO
 		PrefUtils.apply(mEditor);
 		AppLockService.restart(mContext);
+		Gson gson = new Gson();
+		Log.d("PREFERENCES", gson.toJson(mPreferences.getAll()));
+		//TODO: send preferences to surfsafe
 	}
 
 	public void setLocked(boolean lock, String... packageNames) {

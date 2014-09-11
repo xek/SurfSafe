@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="9"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="20" />
 
     <supports-screens
         android:anyDensity="true"
@@ -113,7 +113,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.surfsafe.locker.receivers.NetworkStateReceiverver" >
+        <receiver android:name="com.surfsafe.locker.receivers.NetworkStateReceiver" >
             <intent-filter>
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>

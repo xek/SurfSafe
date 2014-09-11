@@ -1,4 +1,4 @@
-package com.surfsafe.locker.appselect;
+package com.surfsafe.locker.domainselect;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,23 +30,23 @@ import com.surfsafe.locker.lock.AppLockService;
 import com.surfsafe.locker.util.PrefUtils;
 import com.surfsafe.locker.R;
 
-public class AppAdapter extends BaseAdapter {
+public class DomainAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
 	private PackageManager mPm;
 	private Context mContext;
-	private Set<AppListElement> mInitialItems;
-	private List<AppListElement> mItems;
+	private Set<DomainListElement> mInitialItems;
+	private List<DomainListElement> mItems;
 	private Editor mEditor;
 
-	public AppAdapter(Context context) {
+	public DomainAdapter(Context context) {
 		mContext = context;
 		mInflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mPm = context.getPackageManager();
 		// Empty
-		mInitialItems = new HashSet<AppListElement>();
-		mItems = new ArrayList<AppListElement>();
+		mInitialItems = new HashSet<DomainListElement>();
+		mItems = new ArrayList<DomainListElement>();
 		mEditor = PrefUtils.appsPrefs(context).edit();
 
 		new LoaderClass().execute((Void[]) null);
@@ -91,7 +91,7 @@ public class AppAdapter extends BaseAdapter {
 	}
 
 	public boolean areAllAppsLocked() {
-		for (AppListElement app : mItems)
+		for (DomainListElement app : mItems)
 			if (app.isApp() && !app.locked)
 				return false;
 		return true;
@@ -115,20 +115,20 @@ public class AppAdapter extends BaseAdapter {
 
 		for (ResolveInfo ri : ris) {
 			if (!mContext.getPackageName().equals(ri.activityInfo.packageName)) {
-				final AppListElement ah = new AppListElement(ri.loadLabel(mPm)
+				final DomainListElement ah = new DomainListElement(ri.loadLabel(mPm)
 						.toString(), ri.activityInfo,
-						AppListElement.PRIORITY_NORMAL_APPS);
+						DomainListElement.PRIORITY_NORMAL_APPS);
 				mInitialItems.add(ah);
 			}
 		}
 		final Set<String> lockedApps = PrefUtils.getLockedApps(mContext);
-		for (AppListElement ah : mInitialItems) {
+		for (DomainListElement ah : mInitialItems) {
 			ah.locked = lockedApps.contains(ah.packageName);
 		}
-		mItems = new ArrayList<AppListElement>(mInitialItems);
+		mItems = new ArrayList<DomainListElement>(mInitialItems);
 	}
 
-	private void addImportantAndSystemApps(Collection<AppListElement> apps) {
+	private void addImportantAndSystemApps(Collection<DomainListElement> apps) {
 		final String installer = "com.android.packageinstaller";
 		final String sysui = "com.android.systemui";
 
@@ -136,7 +136,7 @@ public class AppAdapter extends BaseAdapter {
 				"com.android.vending", "com.android.settings" });
 
 		final List<String> system = Arrays
-				.asList(new String[] { "com.android.dialer", "com.android.phone" });
+				.asList(new String[] { "com.android.dialer" });
 
 		final PackageManager pm = mContext.getPackageManager();
 		List<ApplicationInfo> list = pm.getInstalledApplications(0);
@@ -144,39 +144,39 @@ public class AppAdapter extends BaseAdapter {
 		boolean haveImportant = false;
 		for (ApplicationInfo pi : list) {
 			if (sysui.equals(pi.packageName)) {
-				apps.add(new AppListElement(mContext
+				apps.add(new DomainListElement(mContext
 						.getString(R.string.applist_app_sysui), pi,
-						AppListElement.PRIORITY_SYSTEM_APPS));
+						DomainListElement.PRIORITY_SYSTEM_APPS));
 				haveSystem = true;
 			} else if (installer.equals(pi.packageName)) {
-				apps.add(new AppListElement(mContext
+				apps.add(new DomainListElement(mContext
 						.getString(R.string.applist_app_pkginstaller), pi,
-						AppListElement.PRIORITY_IMPORTANT_APPS));
+						DomainListElement.PRIORITY_IMPORTANT_APPS));
 				haveImportant = true;
 			}
 			if (important.contains(pi.packageName)) {
-				apps.add(new AppListElement(pi.loadLabel(pm).toString(), pi,
-						AppListElement.PRIORITY_IMPORTANT_APPS));
+				apps.add(new DomainListElement(pi.loadLabel(pm).toString(), pi,
+						DomainListElement.PRIORITY_IMPORTANT_APPS));
 				haveImportant = true;
 			}
 			if (system.contains(pi.packageName)) {
-				apps.add(new AppListElement(pi.loadLabel(pm).toString(), pi,
-						AppListElement.PRIORITY_SYSTEM_APPS));
+				apps.add(new DomainListElement(pi.loadLabel(pm).toString(), pi,
+						DomainListElement.PRIORITY_SYSTEM_APPS));
 				haveSystem = true;
 			}
 
-			apps.add(new AppListElement(mContext
+			apps.add(new DomainListElement(mContext
 					.getString(R.string.applist_tit_apps),
-					AppListElement.PRIORITY_NORMAL_CATEGORY));
+					DomainListElement.PRIORITY_NORMAL_CATEGORY));
 			if (haveImportant) {
-				apps.add(new AppListElement(mContext
+				apps.add(new DomainListElement(mContext
 						.getString(R.string.applist_tit_important),
-						AppListElement.PRIORITY_IMPORTANT_CATEGORY));
+						DomainListElement.PRIORITY_IMPORTANT_CATEGORY));
 			}
 			if (haveSystem) {
-				apps.add(new AppListElement(mContext
+				apps.add(new DomainListElement(mContext
 						.getString(R.string.applist_tit_system),
-						AppListElement.PRIORITY_SYSTEM_CATEGORY));
+						DomainListElement.PRIORITY_SYSTEM_CATEGORY));
 			}
 		}
 	}
@@ -201,7 +201,7 @@ public class AppAdapter extends BaseAdapter {
 		return mItems.get(position);
 	}
 
-	public List<AppListElement> getAllItems() {
+	public List<DomainListElement> getAllItems() {
 		return mItems;
 	}
 
@@ -233,7 +233,7 @@ public class AppAdapter extends BaseAdapter {
 
 	private View createSeparatorViewFromResource(int position,
 			View convertView, ViewGroup parent) {
-		AppListElement ah = mItems.get(position);
+		DomainListElement ah = mItems.get(position);
 
 		View view = convertView;
 		if (view == null)
@@ -248,7 +248,7 @@ public class AppAdapter extends BaseAdapter {
 	private View createAppViewFromResource(int position, View convertView,
 			ViewGroup parent) {
 
-		AppListElement ah = mItems.get(position);
+		DomainListElement ah = mItems.get(position);
 		View view = convertView;
 		if (view == null)
 			view = mInflater.inflate(R.layout.applist_item_app, parent, false);
@@ -276,20 +276,20 @@ public class AppAdapter extends BaseAdapter {
 	// TODO
 	// TODO
 	// TODO Important: Undo action.
-	private ArrayList<AppListElement> mUndoItems;
+	private ArrayList<DomainListElement> mUndoItems;
 
 	public void prepareUndo() {
-		mUndoItems = new ArrayList<AppListElement>(mItems);
+		mUndoItems = new ArrayList<DomainListElement>(mItems);
 	}
 
 	public void undo() {
-		mItems = new ArrayList<AppListElement>(mUndoItems);
+		mItems = new ArrayList<DomainListElement>(mUndoItems);
 		notifyDataSetChanged();
 	}
 
 	public void setAllLocked(boolean lock) {
 		ArrayList<String> apps = new ArrayList<String>();
-		for (AppListElement app : mItems) {
+		for (DomainListElement app : mItems) {
 			if (app.isApp()) {
 				app.locked = lock;
 				apps.add(app.packageName);
@@ -311,13 +311,13 @@ public class AppAdapter extends BaseAdapter {
 		}
 	}
 
-	public void toggle(AppListElement item) {
+	public void toggle(DomainListElement item) {
 		if (item.isApp()) {
 			item.locked = !item.locked;
 			setLocked(item.locked, item.packageName);
 			save();
 		}
-		List<AppListElement> list = new ArrayList<AppListElement>(mItems);
+		List<DomainListElement> list = new ArrayList<DomainListElement>(mItems);
 		Collections.sort(list);
 		boolean dirty = !list.equals(mItems);
 		Log.d("", "dirty=" + dirty + ", mDirtyState = " + mDirtyState);

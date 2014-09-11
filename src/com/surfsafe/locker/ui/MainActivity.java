@@ -84,7 +84,7 @@ public class MainActivity extends ActionBarActivity implements
 		mTitle = getTitle();
 
 		mActionBar = getSupportActionBar();
-		mCurrentFragment = new AppsFragment();
+		mCurrentFragment = new CategoriesFragment();
 		getSupportFragmentManager().beginTransaction()
 				.add(R.id.container, mCurrentFragment).commit();
 		mCurrentFragmentType = NavigationElement.TYPE_APPS;
@@ -236,6 +236,18 @@ public class MainActivity extends ActionBarActivity implements
 					if (query != null) {
 						((AppsFragment) mCurrentFragment).onSearch(query);
 					}
+				} else if (mCurrentFragmentType == NavigationElement.TYPE_CATEGORIES) {
+					final String query = getIntent().getStringExtra(
+							SearchManager.QUERY);
+					if (query != null) {
+						((AppsFragment) mCurrentFragment).onSearch(query);
+					}
+				} else if (mCurrentFragmentType == NavigationElement.TYPE_DOMAINS) {
+					final String query = getIntent().getStringExtra(
+							SearchManager.QUERY);
+					if (query != null) {
+						((AppsFragment) mCurrentFragment).onSearch(query);
+					}
 				}
 			}
 		}
@@ -304,8 +316,14 @@ public class MainActivity extends ActionBarActivity implements
 		}
 
 		switch (type) {
+		case NavigationElement.TYPE_CATEGORIES:
+			mCurrentFragment = new CategoriesFragment();
+			break;
 		case NavigationElement.TYPE_APPS:
 			mCurrentFragment = new AppsFragment();
+			break;
+		case NavigationElement.TYPE_DOMAINS:
+			mCurrentFragment = new DomainsFragment();
 			break;
 		case NavigationElement.TYPE_SETTINGS:
 			mCurrentFragment = new SettingsFragment();

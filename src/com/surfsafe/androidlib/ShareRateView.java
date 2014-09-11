@@ -15,7 +15,7 @@
  */
 package com.surfsafe.androidlib;
 
-import com.surfsafe.androidlib.R;
+import com.surfsafe.locker.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -2,6 +2,8 @@ package com.surfsafe.locker.ui;
 
 public class NavigationElement {
 
+	public static final int TYPE_CATEGORIES = -2;
+	public static final int TYPE_DOMAINS = -1;
 	public static final int TYPE_STATUS = 0;
 	public static final int TYPE_APPS = 1;
 	public static final int TYPE_CHANGE = 2;

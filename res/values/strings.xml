@@ -284,7 +284,7 @@
 
     <!-- BEGIN v2320 -->
     <string name="nav_status">Lock</string>
-    <string name="nav_apps">Applications</string>
+    <string name="nav_categories">Categories</string><string name="nav_domains">Domains</string><string name="nav_apps">Applications</string>
     <string name="nav_change">Change lock</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_statistics">Statistics</string>
@@ -292,7 +292,7 @@
     <string name="nav_test">Test</string>
 
     <!--  -->
-    <string name="fragment_title_apps">Applications</string>
+    <string name="fragment_title_categories">Categories</string><string name="fragment_title_apps">Applications</string><string name="fragment_title_domains">Domains</string>
     <string name="fragment_title_settings">Settings</string>
     <string name="fragment_title_statistics">Statistics</string>
     <string name="fragment_title_pro">Pro</string>
@@ -341,13 +341,24 @@
     <!-- BEGIN v2335 -->
     <string name="share_dlg_never">Never</string>
     <string name="share_dlg_later">Later</string>
-
-    <string name="lib_share_dlg_tit">Share this app</string>
-    <string name="lib_share_dlg_msg">If you like this app, consider helping improve it by sharing it with your friends.</string>
-
     
     <string name="lib_share_never">No thanks</string>
     <string name="lib_share_later">Later</string>
+
+    <string name="cat_porn">Pornography</string>
+    <string name="cat_violence">Violence and martial arts</string>
+    <string name="cat_dating">Dating</string>
+    <string name="cat_social">Social networks</string>
+    <string name="cat_proxy">Proxies and settings</string>
+    <string name="cat_drugs">Drugs</string>
+    <string name="cat_filesharing">File Sharing</string>
+    <string name="cat_shopping">Shopping</string>
+    <string name="cat_forums">Forums and popular blogs</string>
+    <string name="cat_games">Games</string>
+    <string name="cat_gambling">Gambling</string>
+    <string name="cat_media">Media and streaming</string>
+    <string name="cat_obscene">Obscene or indecent</string>
+    <string name="cat_other">Not verified</string>
     
 </resources>
 

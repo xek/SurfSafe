@@ -1,6 +1,6 @@
 package com.surfsafe.androidlib;
 
-import com.surfsafe.androidlib.R;
+import com.surfsafe.locker.R;
 
 import android.app.AlertDialog;
 import android.content.Context;

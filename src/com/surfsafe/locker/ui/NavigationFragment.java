@@ -97,7 +97,7 @@ public class NavigationFragment extends Fragment implements
 		} else {
 			// Select default fragment
 			mCurrentSelectedPosition = mAdapter
-					.getPositionFor(NavigationElement.TYPE_APPS);
+					.getPositionFor(NavigationElement.TYPE_CATEGORIES);
 		}
 
 		// Select either the default item (0) or the last selected item.

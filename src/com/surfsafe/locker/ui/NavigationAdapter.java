@@ -70,7 +70,9 @@ public class NavigationAdapter extends BaseAdapter {
 
 	private void setupElements() {
 		addElement(R.string.nav_status, NavigationElement.TYPE_STATUS);
+		addElement(R.string.nav_categories, NavigationElement.TYPE_CATEGORIES);
 		addElement(R.string.nav_apps, NavigationElement.TYPE_APPS);
+		addElement(R.string.nav_domains, NavigationElement.TYPE_DOMAINS);
 		addElement(R.string.nav_change, NavigationElement.TYPE_CHANGE);
 		addElement(R.string.nav_settings, NavigationElement.TYPE_SETTINGS);
 		if (Constants.DEBUG) {
