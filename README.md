@@ -26,9 +26,11 @@ The app is currently available in 4 languages (Name: Translator):
  * German: [Patschi](https://github.com/patschi)
  * Dutch: [Twinone](https://github.com/twinone)
  * Catalan: [jmendeth](https://github.com/jmendeth), [nrikee](https://github.com/nrikee)
- * Polish: SurfSafe Team
+ * Polish: The SurfSafe Team
 
-If you want to translate the app, send a pull request with the added file /values-XX/strings.xml
+You can translate this app here: https://www.getlocalization.com/surfsafe/
+
+or send a pull request with the added file /values-XX/strings.xml
 
 
 
